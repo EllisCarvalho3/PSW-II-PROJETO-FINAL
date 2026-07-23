@@ -22,7 +22,7 @@ Siga os passos abaixo para clonar e rodar o projeto na sua máquina:
 
 1. **Clone o repositório:**
    ```bash
-   git clone <URL_DO_REPOSITORIO>
+   git clone <https://github.com/EllisCarvalho3/PSW-II-PROJETO-FINAL.git>
    cd xavieracademy
 
    Crie e ative o ambiente virtual:
