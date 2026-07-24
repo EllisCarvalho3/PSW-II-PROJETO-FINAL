@@ -1,4 +1,4 @@
-# PSW-II---PROJETO-FINAL
+# PSW II - PROJETO FINAL
 
 # Sistema de gestão acadêmica — Xavier Academy
 
