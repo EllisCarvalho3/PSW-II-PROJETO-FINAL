@@ -112,11 +112,15 @@ PSW-II-PROJETO-FINAL/
 ├── imagens/
 │   ├── demonstracao_sistema.png
 │   └── diagrama_psw.png
-│
-├── static/
-├── templates/
+│── venv/
 ├── xavieracademy/
-├── manage.py
+    ├── core/
+│   └── static/
+│   └── templates/
+│   └── static/
+│   └── xavieracademy/
+│   └── db.sqlite3
+│   └── manage.py
 ├── README.md
 └── requirements.txt
 ```
