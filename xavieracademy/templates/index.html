@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero spad set-bg" data-setbg="{% static 'img/6.jpeg' %}"> 
+    {% comment %} foto do lucas {% endcomment %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hero__text">
+                    <span>Xavier Academy</span>
+                    <h1>Transformando alunos em músicos</h1>
+                    <p>Sistema corporativo completo para gerenciamento de matrículas, turmas e controle de instrumentos musicais.</p>
+                    <a href="/aluno/criar/" class="primary-btn">Cadastrar novo aluno</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="linear__icon">
+        <a href="#services-section"><i class="fa fa-angle-double-down"></i></a>
+    </div>
+</section>
+<section id="services-section" class="services">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 p-0">
+                <div class="services__left set-bg" data-setbg="{% static 'img/2.jpeg' %}">
+                        {% comment %} foto do lucas {% endcomment %}
+                    <a href="https://youtu.be/ruJoHlcn9ro?si=qM7zUDeK36_xQPAx" class="play-btn video-popup">
+                        <i class="fa fa-play"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 p-0">
+                <div class="row services__list">
+                    <div class="col-lg-6 p-0">
+                        <div class="service__item deep-bg">
+                            <a href="/aluno/" style="text-decoration: none; color: inherit;">
+                                <i class="fa fa-users fa-2x mb-3 text-white"></i>
+                                <h4>Alunos</h4>
+                                <p>Gerencie dados cadastrais, informações de contato e prontuários acadêmicos dos alunos.</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 p-0">
+                        <div class="service__item">
+                            <a href="/professor/" style="text-decoration: none; color: inherit;">
+                                <i class="fa fa-graduation-cap fa-2x mb-3 text-white"></i>
+                                <h4>Professores</h4>
+                                <p>Acompanhe o corpo docente, suas respectivas especialidades e cargas horárias atribuídas.</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 p-0">
+                        <div class="service__item deep-bg">
+                            <a href="/instrumento/" style="text-decoration: none; color: inherit;">
+                                <i class="fa fa-music fa-2x mb-3 text-white"></i>
+                                <h4>Instrumentos</h4>
+                                <p>Controle do acervo patrimonial de instrumentos, categorizados por marca e tipo.</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 p-0">
+                        <div class="service__item">
+                            <a href="/matricula/" style="text-decoration: none; color: inherit;">
+                                <i class="fa fa-file-text-o fa-2x mb-3 text-white"></i>
+                                <h4>Matrículas</h4>
+                                <p>Efetue novas matrículas vinculando os alunos às suas respectivas turmas de interesse.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="track spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="section-title">
+                    <h2>Xavier Academy</h2>
+                    <h1>Aulas práticas</h1>
+                </div>
+            </div>
+            <div class="col-lg-5 text-right">
+    <a href="/turma/" class="primary-btn border-btn" style="color: #ffffff !important;">Visualizar turmas</a>
+</div>
+            
+        </div>
+        <div class="row">
+            <div class="col-lg-7 p-0">
+                <div class="track__content nice-scroll" style="max-height: 440px; overflow-y: auto;">
+                    
+
+
+
+                    {% comment %} BOTÃO COM LINK PARA AULA DE VIOLINO {% endcomment %}
+                    <div class="single_player_container d-flex align-items-center justify-content-between p-3 mb-2" style="background: rgba(255,255,255,0.03); border-radius: 5px;">
+    <div class="player_info">
+        <h4 class="text-white mb-1">Módulo prático: Violino Erudito</h4>
+        <p class="text-muted m-0" style="font-size: 13px;">Introdução à postura do arco e sonoridade</p>
+    </div>
+    <div class="player_controls">
+        <a href="https://youtube.com/playlist?list=PL9KWyFkQEFQoxouiueUi8QQm8qS8FvJcB&si=P-N0S9ST8LytsRG7" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <button class="player_button fa fa-play" style="background: #5c00ce; border: none; color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: 0.3s;"></button>
+        </a>
+    </div>
+</div>
+ {% comment %} BOTÃO COM LINK PARA AULA DE VIOLINO {% endcomment %}
+
+
+
+ {% comment %} BOTÃO COM LINK PARA AULA DE PIANO {% endcomment %}
+                    <div class="single_player_container d-flex align-items-center justify-content-between p-3 mb-2" style="background: rgba(255,255,255,0.03); border-radius: 5px;">
+    <div class="player_info">
+        <h4 class="text-white mb-1">Módulo prático: Piano Clássico</h4>
+        <p class="text-muted m-0" style="font-size: 13px;">Leitura rítmica de partituras e independência das mãos</p>
+    </div>
+    <div class="player_controls">
+        <a href="https://youtube.com/playlist?list=PLb4uSJGRKwIA6cG_BLhzlQSHOQVtZacPu&si=4wopjRcLe6-7Cyfd" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <button class="player_button fa fa-play" style="background: #5c00ce; border: none; color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: 0.3s;"></button>
+        </a>
+    </div>
+</div>
+ {% comment %} BOTÃO COM LINK PARA AULA DE PIANO {% endcomment %}
+
+
+                    {% comment %} BOTÃO COM LINK PARA AULA DE VIOLÃO {% endcomment %}
+                    <div class="single_player_container d-flex align-items-center justify-content-between p-3 mb-2" style="background: rgba(255,255,255,0.03); border-radius: 5px;">
+    <div class="player_info">
+        <h4 class="text-white mb-1">Módulo prático: Violão Acústico</h4>
+        <p class="text-muted m-0" style="font-size: 13px;">Montagem de acordes fundamentais e dedilhados básicos</p>
+    </div>
+    <div class="player_controls">
+        <a href="https://youtu.be/U8h0XCPkEnE?si=DMjUq6n9W596icCi" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <button class="player_button fa fa-play" style="background: #5c00ce; border: none; color: white; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; transition: 0.3s;"></button>
+        </a>
+    </div>
+</div>
+
+ {% comment %} BOTÃO COM LINK PARA AULA DE VIOLÃO {% endcomment %}
+
+                </div>
+            </div>
+            <div class="col-lg-5 p-0">
+                <div class="track__pic">
+                    <img src="{% static 'img/3.jpeg' %}" alt="Music Academy" style="border-radius: 5px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

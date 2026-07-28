@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+   <div class="card p-4 text-white" style="border-radius: 10px; background-color: rgba(76, 20, 131, 0.43);">
+        <h2 class="mb-4">Detalhes do Professor</h2>
+        <hr style="border-color: rgb(104, 37, 163);;">
+        
+        <div class="mb-3">
+            <p class="mb-1 text-muted">Nome do Docente</p>
+            <h4>{{ professor.nome }}</h4>
+        </div>
+        <div class="mb-3">
+            <p class="mb-1 text-muted">Especialidade / Instrumento</p>
+            <h4><span class="badge badge-info px-3 py-2">{{ professor.especialidade }}</span></h4>
+        </div>
+        <div class="mb-4">
+            <p class="mb-1 text-muted">Telefone</p>
+            <h4>{{ professor.telefone }}</h4>
+        </div>
+
+        <div class="mt-3">
+            <a class="btn btn-outline-light" href="/professor/">Voltar para listagem</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

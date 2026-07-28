@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="card p-4 text-white" style="border-radius: 10px; background-color: rgba(76, 20, 131, 0.43);">
+        <h2 class="mb-4">Detalhes do Aluno</h2>
+        <hr style="border-color: rgb(104, 37, 163);;">
+        
+        <div class="mb-3">
+            <p class="mb-1 text-muted">Nome Completo</p>
+            <h4>{{ aluno.nome }}</h4>
+        </div>
+        <div class="mb-3">
+            <p class="mb-1 text-muted">Idade</p>
+            <h4>{{ aluno.idade }} anos</h4>
+        </div>
+        <div class="mb-3">
+            <p class="mb-1 text-muted">Telefone de Contato</p>
+            <h4>{{ aluno.telefone }}</h4>
+        </div>
+        <div class="mb-4">
+            <p class="mb-1 text-muted">E-mail</p>
+            <h4>{{ aluno.email }}</h4>
+        </div>
+
+        <div class="mt-3">
+            <a class="btn btn-outline-light" href="/aluno/">Voltar para listagem</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

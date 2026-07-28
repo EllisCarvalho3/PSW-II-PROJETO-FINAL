@@ -1,0 +1,254 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xavier Academy</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+
+    <style>
+
+/* Ajustes responsivos para telas menores */
+@media (max-width: 767px) {
+    .custom-footer {
+        text-align: left;
+        margin-top: 50px;
+    }
+    .footer-wave-container svg {
+        height: 40px;
+    }
+    .footer-content-wrapper {
+        padding-top: 60px;
+    }
+}
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #190033; /* Cor escura padrão do template */
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Força os títulos a seguirem a fonte Rajdhani do template */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Rajdhani', sans-serif !important;
+        }
+
+        /* Wrapper principal que empurra o rodapé para baixo se a página tiver pouco conteúdo */
+        .main-wrapper {
+            flex: 1 0 auto;
+            margin-top: 75px; /* Compensa o header fixo menor */
+        }
+
+        .footer {
+            flex-shrink: 0;
+            margin-top: 0 !important; /* Remove o margin negativo problemático do template original */
+            background: #0a0014 !important;
+            padding: 40px 0 20px 0 !important;
+        }
+
+        /* Ajuste fino do Header/Topbar para não ocupar metade da tela */
+        .header {
+            background: #0a0014;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+            padding: 10px 0 !important; /* Topbar mais fina */
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .header__logo h3 {
+            font-size: 20px !important;
+            margin: 0;
+            line-height: 40px;
+        }
+
+        .header__menu ul li {
+            margin-right: 25px !important;
+        }
+
+        .header__menu ul li a {
+            font-size: 14px !important;
+            padding: 10px 0 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-3">
+                    <div class="header__logo">
+                        <a href="/" style="text-decoration: none;">
+                            <h3 style="color: #ffffff; font-weight: 700; letter-spacing: 1px;">
+                                <span style="color: #5c00ce;"></span> XAVIER ACADEMY
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul class="mb-0">
+    <li><a href="/">Home</a></li>
+    <li><a href="/aluno/">Alunos</a></li>
+    <li><a href="/professor/">Professores</a></li>
+    <li><a href="/instrumento/">Instrumentos</a></li>
+    <li><a href="/turma/">Turmas</a></li>
+    <li><a href="/matricula/">Matrículas</a></li>
+    
+    {% if request.user.is_authenticated %}
+        <li style="margin-left: 15px;">
+            <form action="{% url 'logout' %}" method="POST" style="display: inline; margin: 0;">
+                {% csrf_token %}
+                <button type="submit" style="
+                    background: none;
+                    border: 1px solid #00ff75;
+                    color: #00ff75;
+                    font-family: 'Rajdhani', sans-serif;
+                    font-weight: 600;
+                    font-size: 13px;
+                    text-transform: uppercase;
+                    padding: 5px 12px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    transition: 0.3s;
+                " onmouseover="this.style.background='#00ff75'; this.style.color='#000'" onmouseout="this.style.background='none'; this.style.color='#00ff75'">
+                    Sair <i class="fa fa-sign-out"></i>
+                </button>
+            </form>
+        </li>
+    {% endif %}
+</ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="main-wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+
+   <footer class="neo-footer">
+    <div class="container">
+        <div class="neo-footer-top">
+         
+            <div class="neo-footer-brand">
+                <div class="neo-footer-logo">
+                    <span class="logo-accent"></span>
+                    <h2>XAVIER<span>ACADEMY</span></h2>
+                </div>
+
+                <p>
+                    Plataforma moderna para gerenciamento de alunos,
+                    professores, instrumentos e turmas musicais com
+                    elegância visual e performance.
+                </p>
+
+                <div class="neo-footer-socials">
+                    <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                    <a href="https://github.com/EllisCarvalho3"><i class="fa fa-github"></i></a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ecarvx@gmail.com&su=Contato%20pelo%20site&body=Ol%C3%A1,%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."><i class="fa fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/ellis-xavier"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <!-- Navegação -->
+            <div class="neo-footer-links">
+                <h4>Navegação</h4>
+
+                <a href="/aluno/">
+                    <i class="fa fa-graduation-cap"></i>
+                    Alunos
+                </a>
+
+                <a href="/professor/">
+                    <i class="fa fa-user"></i>
+                    Professores
+                </a>
+
+                <a href="/matricula/">
+                    <i class="fa fa-id-card"></i>
+                    Matrículas
+                </a>
+
+                <a href="/turma/">
+                    <i class="fa fa-users"></i>
+                    Turmas
+                </a>
+
+                <a href="/instrumento/">
+                    <i class="fa fa-music"></i>
+                    Instrumentos
+                </a>
+            </div>
+
+            <!-- Contato -->
+            <div class="neo-footer-contact">
+                <h4>Contato</h4>
+
+                <div class="contact-card">
+                    <i class="fa fa-phone"></i>
+                    <span>+55 (77) 98157-3856</span>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fa fa-envelope"></i>
+                    <span>ellisviolinista@gmail.com</span>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fa fa-map-marker"></i>
+                    <span>Bahia • Brasil</span>
+                </div>
+
+                <form class="neo-newsletter">
+                    <input type="email" placeholder="Seu e-mail">
+                    <button type="submit">
+                        <i class="fa fa-send"></i>
+                    </button>
+                </form>
+            </div> 
+
+        </div>
+
+        <div class="neo-footer-bottom">
+            <p>
+               Ellis Carvalho Xavier &copy;  <script>document.write(new Date().getFullYear())</script>
+                Xavier Academy | Desenvolvido com Django e estética original DJoz
+            </p>
+        </div>
+    </div>
+</footer>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/custom-animations.js' %}"></script>
+    <script>
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        // Define quantos pixels o usuário precisa descer para ativar o efeito glass (ex: 50px)
+        if (window.scrollY > 50) {
+            header.classList.add('header-sticky');
+        } else {
+            header.classList.remove('header-sticky');
+        }
+    });
+</script>
+</body>
+
+</html>

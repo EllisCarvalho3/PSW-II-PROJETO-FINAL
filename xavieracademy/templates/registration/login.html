@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xavier Academy - Acesso ao Sistema</title>
+    
+    {% load static %}
+    
+    <!-- Fontes e Ícones originais do seu projeto -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+
+    <style>
+        :root {
+            --bg-deep: #0a0014;       /* O preto/roxo profundo do seu rodapé */
+            --bg-base: #190033;       /* O roxo padrão do seu site */
+            --primary-purple: #5c00ce;/* O roxo assinatura da Xavier Academy */
+            --electric-blue: #00d2ff; /* Azul para iluminar os detalhes */
+            --text-soft: #94a3b8;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg-deep);
+            /* Fundo com degradê radial profundo simulando iluminação de estúdio */
+            background: radial-gradient(circle at 80% 20%, rgba(92, 0, 206, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 10% 80%, rgba(0, 210, 255, 0.1) 0%, transparent 40%),
+                        var(--bg-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Efeito de brilho de fundo atrás do card */
+        .login-glow-effect {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--primary-purple);
+            filter: blur(120px);
+            opacity: 0.25;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Moldura com o novo degradê sofisticado (Roxo, Azul e Preto) */
+        .card {
+            background-image: linear-gradient(135deg, var(--primary-purple) 0%, #1a0033 50%, var(--electric-blue) 100%);
+            border-radius: 24px;
+            transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 1.5px; 
+            box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.6);
+            z-index: 2;
+        }
+
+        /* Container interno com efeito de vidro reflexivo */
+        .card2 {
+            background: rgba(10, 0, 20, 0.82);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 23px;
+            transition: all .3s ease;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 45px 40px;
+            width: 330px;
+        }
+
+        /* Cabeçalho elegante e focado na marca */
+        .brand-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .brand-header i {
+            color: var(--electric-blue);
+            font-size: 24px;
+            display: block;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+        }
+
+        #heading {
+            text-align: center;
+            margin: 0;
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        #heading span {
+            color: var(--electric-blue);
+        }
+
+        .subtitle {
+            color: var(--text-soft);
+            font-size: 13px;
+            margin: 4px 0 0 0;
+            font-weight: 400;
+        }
+
+        /* Campos de Entrada Estilo Linha de Áudio */
+        .field {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border-radius: 16px;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+            transition: 0.3s ease;
+        }
+
+        .field:focus-within {
+            border-color: var(--electric-blue);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .input-icon {
+            height: 1.2em;
+            width: 1.2em;
+            fill: var(--primary-purple);
+            transition: 0.3s ease;
+        }
+
+        .field:focus-within .input-icon {
+            fill: var(--electric-blue);
+            filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.5));
+        }
+
+        .field input {
+            background: none;
+            border: none;
+            outline: none;
+            width: 100%;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .field input::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Caixa de botões principal */
+        .form .btn-box {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 15px;
+            gap: 12px;
+        }
+
+        /* Botão Entrar / Sintonizar Principal */
+        .button1 {
+            padding: 14px;
+            border-radius: 14px;
+            border: none;
+            outline: none;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: .3s all ease;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, #3b0082 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(92, 0, 206, 0.3);
+        }
+
+        .button1:hover {
+            background: linear-gradient(135deg, #7000f7 0%, var(--primary-purple) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(92, 0, 206, 0.5);
+        }
+
+        .button1:active {
+            transform: translateY(0);
+        }
+
+        /* Botões secundários minimalistas */
+        .secondary-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+        .button2, .button3 {
+            background: none;
+            border: none;
+            outline: none;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            color: var(--text-soft);
+            transition: .3s ease;
+            padding: 5px;
+        }
+
+        .button2:hover {
+            color: var(--electric-blue);
+        }
+
+        .button3:hover {
+            color: #ef4444;
+        }
+
+        /* Caixa de erro integrada e sofisticada */
+        .error-box {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 12px;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 5px;
+            animation: shake 0.4s ease-in-out;
+        }
+        
+        .error-box p {
+            color: #fca5a5;
+            font-size: 12px;
+            margin: 0;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            75% { transform: translateX(6px); }
+        }
+
+        /* Hover de aproximação sutil do Card */
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 25px 60px rgba(92, 0, 206, 0.25);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-glow-effect"></div>
+
+    <div class="card">
+        <div class="card2">
+            
+            <form class="form" method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                
+                <div class="brand-header">
+                    <i class="fa fa-music"></i>
+                    <p id="heading">Xavier <span>Academy</span></p>
+                    <p class="subtitle">Controle de Matrículas & Instrumentos</p>
+                </div>
+
+                {% if form.errors %}
+                <div class="error-box">
+                    <p><i class="bi bi-exclamation-circle-fill"></i> Usuário ou senha incorretos.</p>
+                </div>
+                {% endif %}
+                
+                <!-- Input de Usuário -->
+                <div class="field">
+                    <svg viewBox="0 0 16 16" class="input-icon">
+                        <path d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"></path>
+                    </svg>
+                    <input type="text" name="username" class="input-field" placeholder="Nome de usuário" autocomplete="off" required id="id_username">
+                </div>
+                
+                <!-- Input de Senha -->
+                <div class="field">
+                    <svg viewBox="0 0 16 16" class="input-icon">
+                        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+                    </svg>
+                    <input type="password" name="password" class="input-field" placeholder="Senha de acesso" required id="id_password">
+                </div>
+                
+                <div class="form-box">
+                    <button type="submit" class="button1">Sintonizar Sistema</button>
+                </div>
+                
+                <div class="secondary-actions">
+                    <button type="button" class="button2" onclick="alert('Inscrições institucionais suspensas via web. Procure a secretaria.')">Sign Up</button>
+                    <button type="button" class="button3" onclick="alert('Entre em contato com o suporte de TI para redefinir suas credenciais.')">Esqueceu a senha?</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>
