@@ -87,12 +87,19 @@ O projeto possui as seguintes entidades:
 
 ### Relacionamentos implementados
 
-- Instrumento (1:N) Turma
-- Professor (1:N) Turma
-- Turma (1:N) Matrícula
-- Aluno (1:N) Matrícula
+- Pessoa (1:1) Usuário
+- Pessoa (generalização) Aluno
+- Pessoa (generalização) Professor
+- Instrumento (1) Turma
+- Professor (1) Turma
+- Turma (1) Matrícula
+- Aluno (1) Matrícula
 
-Embora o projeto implemente relacionamentos do tipo **1:N**, a entidade **Matrícula** atua como uma classe intermediária entre **Aluno** e **Turma**, representando logicamente um relacionamento **N:N**. Essa abordagem permite registrar informações específicas da matrícula, como a data de realização, seguindo boas práticas de modelagem de bancos de dados relacionais.
+A entidade Matrícula representa a associação entre Aluno e Turma, armazenando informações próprias do vínculo, como data da matrícula e status da matrícula (ativa, trancada ou cancelada).
+
+Embora os relacionamentos implementados sejam do tipo 1, a entidade Matrícula funciona como uma classe associativa entre Aluno e Turma, representando logicamente um relacionamento N. Essa abordagem segue as boas práticas de modelagem de bancos de dados relacionais, permitindo registrar atributos específicos da matrícula sem duplicação de dados.
+
+A utilização da entidade Pessoa como superclasse torna o modelo mais organizado, evita repetição de informações entre alunos e professores e facilita futuras expansões do sistema.
 
 O diagrama de classes encontra-se disponível na pasta **imagens** do projeto:
 
