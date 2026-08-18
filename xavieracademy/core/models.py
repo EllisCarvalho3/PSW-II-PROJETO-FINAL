@@ -1,19 +1,18 @@
+from django.conf import settings
+from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.contrib.auth.models import User
 
-class Usuario(User):
+class Usuario(AbstractUser):
     def __str__(self):
         return self.username
 
-
-class Pessoa(models.Model):
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE, null=True, blank=True)
+class Pessoa(Usuario):
+    usuario = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     nome = models.CharField(max_length=100)
     cpf = models.CharField(max_length=14, null=True, blank=True)
-    rg = models.CharField(max_length=20) 
+    rg = models.CharField(max_length=20)
     data_nascimento = models.DateField()
     sexo = models.CharField(max_length=20)
-    email = models.EmailField()
     telefone = models.CharField(max_length=20)
     logradouro = models.CharField(max_length=150)
     numero = models.IntegerField()
