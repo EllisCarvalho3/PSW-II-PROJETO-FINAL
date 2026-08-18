@@ -72,6 +72,6 @@ class Matricula(models.Model):
     turma = models.ForeignKey(Turma, on_delete=models.CASCADE, related_name='matriculas')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='ATIVA')
     data_matricula = models.DateField()
-
+    
     def __str__(self):
         return f'{self.aluno} - {self.turma}'
