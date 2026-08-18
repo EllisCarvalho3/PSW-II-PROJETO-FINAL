@@ -1,12 +1,11 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-
-class Usuario(AbstractUser):
+from django.contrib.auth.models import User
+class Usuario(User):
     def __str__(self):
         return self.username
 
 
-class Pessoa(models.Model):
+class Pessoa(User):
     usuario = models.OneToOneField(
         Usuario,
         on_delete=models.CASCADE,
@@ -19,7 +18,6 @@ class Pessoa(models.Model):
     rg = models.CharField(max_length=20)
     data_nascimento = models.DateField()
     sexo = models.CharField(max_length=20)
-    email = models.EmailField()
     telefone = models.CharField(max_length=20)
     logradouro = models.CharField(max_length=150)
     numero = models.IntegerField()
