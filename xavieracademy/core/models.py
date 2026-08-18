@@ -1,16 +1,11 @@
-from django.conf import settings
-from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.contrib.auth.models import User
 
-class Usuario(AbstractUser):
-    def __str__(self):
-        return self.username
-
-class Pessoa(Usuario):
-    usuario = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
+# pessoa deve herdar diretamente de user 
+class Pessoa(User):
     nome = models.CharField(max_length=100)
     cpf = models.CharField(max_length=14, null=True, blank=True)
-    rg = models.CharField(max_length=20)
+    rg = models.CharField(max_length=20) 
     data_nascimento = models.DateField()
     sexo = models.CharField(max_length=20)
     telefone = models.CharField(max_length=20)

@@ -118,10 +118,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
+STATICFILES_DIRS = [ 
     BASE_DIR / 'static'
 ]
-AUTH_USER_MODEL = 'core.Usuario'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'  
