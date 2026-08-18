@@ -173,7 +173,7 @@ source venv/bin/activate
 ## 3. Instale as dependências
 
 ```bash
-pip install -r requirements.txt
+pip install -r requeriments.txt
 ```
 
 ---
