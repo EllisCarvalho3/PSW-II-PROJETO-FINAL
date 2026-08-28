@@ -10,17 +10,20 @@
             <p class="mb-1 text-muted">Nome Completo</p>
             <h4>{{ aluno.nome }}</h4>
         </div>
-        <div class="mb-3">
-            <p class="mb-1 text-muted">Idade</p>
-            <h4>{{ aluno.idade }} anos</h4>
-        </div>
-        <div class="mb-3">
-            <p class="mb-1 text-muted">Telefone de Contato</p>
-            <h4>{{ aluno.telefone }}</h4>
-        </div>
-        <div class="mb-4">
-            <p class="mb-1 text-muted">E-mail</p>
-            <h4>{{ aluno.email }}</h4>
+        <div class="row">
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">CPF</p><h4>{{ aluno.cpf }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">RG</p><h4>{{ aluno.rg }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">Data de nascimento</p><h4>{{ aluno.data_nascimento|date:"d/m/Y" }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">Sexo</p><h4>{{ aluno.sexo }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">Telefone</p><h4>{{ aluno.telefone }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">E-mail</p><h4>{{ aluno.email }}</h4></div>
+            <div class="col-md-8 mb-3"><p class="mb-1 text-muted">Logradouro</p><h4>{{ aluno.logradouro }}</h4></div>
+            <div class="col-md-4 mb-3"><p class="mb-1 text-muted">Número</p><h4>{{ aluno.numero }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">Bairro</p><h4>{{ aluno.bairro }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">Cidade / Estado</p><h4>{{ aluno.cidade }} - {{ aluno.estado }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">CEP</p><h4>{{ aluno.cep }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">Status institucional</p><h4>{{ aluno.get_status_instituicao_display }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">Matrícula</p><h4>{{ aluno.matricula }}</h4></div>
         </div>
 
         <div class="mt-3">

@@ -14,9 +14,19 @@
             <p class="mb-1 text-muted">Especialidade / Instrumento</p>
             <h4><span class="badge badge-info px-3 py-2">{{ professor.especialidade }}</span></h4>
         </div>
-        <div class="mb-4">
-            <p class="mb-1 text-muted">Telefone</p>
-            <h4>{{ professor.telefone }}</h4>
+        <div class="row">
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">CPF</p><h4>{{ professor.cpf }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">RG</p><h4>{{ professor.rg }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">Data de nascimento</p><h4>{{ professor.data_nascimento|date:"d/m/Y" }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">Sexo</p><h4>{{ professor.sexo }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">Telefone</p><h4>{{ professor.telefone }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">E-mail</p><h4>{{ professor.email }}</h4></div>
+            <div class="col-md-8 mb-3"><p class="mb-1 text-muted">Logradouro</p><h4>{{ professor.logradouro }}</h4></div>
+            <div class="col-md-4 mb-3"><p class="mb-1 text-muted">Número</p><h4>{{ professor.numero }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">Bairro</p><h4>{{ professor.bairro }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">Cidade / Estado</p><h4>{{ professor.cidade }} - {{ professor.estado }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">CEP</p><h4>{{ professor.cep }}</h4></div>
+            <div class="col-md-6 mb-3"><p class="mb-1 text-muted">Status institucional</p><h4>{{ professor.get_status_instituicao_display }}</h4></div>
         </div>
 
         <div class="mt-3">
