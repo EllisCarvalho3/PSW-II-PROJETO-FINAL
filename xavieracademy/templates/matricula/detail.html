@@ -14,6 +14,10 @@
             <p class="mb-1 text-muted">Turma Vinculada</p>
             <h4>{{ matricula.turma.nome }} — Horário: {{ matricula.turma.horario }}</h4>
         </div>
+        <div class="mb-3">
+            <p class="mb-1 text-muted">Status</p>
+            <h4>{{ matricula.get_status_display }}</h4>
+        </div>
         <div class="mb-4">
             <p class="mb-1 text-muted">Data da Matrícula</p>
             <h4>{{ matricula.data_matricula|date:"d/m/Y" }}</h4>
