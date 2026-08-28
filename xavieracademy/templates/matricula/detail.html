@@ -3,15 +3,15 @@
 {% block content %}
 <div class="container mt-5 mb-5">
     <div class="card p-4 text-white" style="border-radius: 10px; background-color: rgba(76, 20, 131, 0.43);">
-        <h2 class="mb-4">Comprovante de Matrícula</h2>
+        <h2 class="mb-4">Comprovante de matrícula</h2>
         <hr style="border-color: rgb(104, 37, 163);">
         
         <div class="mb-3">
-            <p class="mb-1 text-muted">Estudante</p>
+            <p class="mb-1 text-muted">Estudante</p> 
             <h4>{{ matricula.aluno.nome }}</h4>
         </div>
-        <div class="mb-3">
-            <p class="mb-1 text-muted">Turma Vinculada</p>
+        <div class="mb-3"> 
+            <p class="mb-1 text-muted">Turma vinculada</p>
             <h4>{{ matricula.turma.nome }} — Horário: {{ matricula.turma.horario }}</h4>
         </div>
         <div class="mb-3">
@@ -19,7 +19,7 @@
             <h4>{{ matricula.get_status_display }}</h4>
         </div>
         <div class="mb-4">
-            <p class="mb-1 text-muted">Data da Matrícula</p>
+            <p class="mb-1 text-muted">Data da matrícula</p>
             <h4>{{ matricula.data_matricula|date:"d/m/Y" }}</h4>
         </div>
 
