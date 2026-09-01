@@ -8,7 +8,7 @@ class AlunoForm(ModelForm):
             'username',
             'email',
             'nome',
-            'cpf',
+            'cpf', 
             'rg',
             'data_nascimento',
             'sexo',
@@ -44,7 +44,7 @@ class ProfessorForm(ModelForm):
             'status_instituicao',
             'especialidade',
         ]
-
+ 
 class InstrumentoForm(ModelForm):
     class Meta:
         model = Instrumento
