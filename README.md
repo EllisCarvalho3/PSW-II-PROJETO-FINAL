@@ -1,4 +1,4 @@
-# Xavier Academy
+# Mavier Academy
  <div style="display: inline_block"><br>
   <img align="center" alt="Js" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
   <img align="center" alt="HTML" height="30" width="30" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
@@ -15,7 +15,7 @@ Sistema web de gestão acadêmica para uma escola de música, desenvolvido como 
 
 # Interface inicial
 
-A imagem abaixo apresenta uma das seções da tela inicial do sistema **Xavier Academy**, desenvolvida a partir da adaptação do template DJoz. Novas funcionalidades e telas serão adicionadas conforme o desenvolvimento do projeto.
+A imagem abaixo apresenta uma das seções da tela inicial do sistema **Mavier Academy**, desenvolvida a partir da adaptação do template DJoz. Novas funcionalidades e telas serão adicionadas conforme o desenvolvimento do projeto.
 
 <p align="center">
     <img src="imagens/demonstracao_sistema.png" alt="Tela inicial do sistema" width="900">
