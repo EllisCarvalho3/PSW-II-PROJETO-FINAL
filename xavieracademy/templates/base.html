@@ -172,6 +172,7 @@
                                     <li class="logout-menu">
                                         <form action="{% url 'logout' %}" method="POST" style="display: inline; margin: 0;">
                                             {% csrf_token %}
+                                            <input type="hidden" name="next" value="/">
                                             <button type="submit" class="logout-button">
                                                 Sair
                                                 <i class="fa fa-sign-out"></i>
