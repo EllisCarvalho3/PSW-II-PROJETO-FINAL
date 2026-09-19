@@ -25,7 +25,7 @@ A imagem abaixo apresenta uma das seções da tela inicial do sistema **Mavier A
 
 # Sobre o projeto
 
-O **Xavier Academy** é uma aplicação web desenvolvida para simular o gerenciamento de uma escola de música, permitindo o cadastro e gerenciamento de alunos, professores, instrumentos, turmas e matrículas.
+O **Mavier Academy** é uma aplicação web desenvolvida para simular o gerenciamento de uma escola de música, permitindo o cadastro e gerenciamento de alunos, professores, instrumentos, turmas e matrículas.
 
 O projeto foi desenvolvido seguindo os requisitos da disciplina de **Programção de Sistemas para Web II**, contemplando modelagem orientada a objetos, banco de dados relacional, autenticação de usuários e interface responsiva.
 
