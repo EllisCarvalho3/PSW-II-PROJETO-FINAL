@@ -15,10 +15,10 @@ Sistema web de gestão acadêmica para uma escola de música, desenvolvido como 
 
 # Interface inicial
 
-A imagem abaixo apresenta uma das seções da tela inicial do sistema **Mavier Academy**, desenvolvida a partir da adaptação do template DJoz. Novas funcionalidades e telas serão adicionadas conforme o desenvolvimento do projeto.
+A imagem abaixo apresenta a seção "sobre" do sistema **Mavier Academy**, desenvolvida a partir da adaptação do template DJoz. 
 
 <p align="center">
-    <img src="imagens/demonstracao_sistema.png" alt="Tela inicial do sistema" width="900">
+    <img src="imagens/demonstracao_sistema.jpg" alt="Tela inicial do sistema" width="900">
 </p>
 
 ---
