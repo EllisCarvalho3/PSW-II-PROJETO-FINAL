@@ -78,6 +78,10 @@
             margin-right: 25px !important;
         }
 
+        .header__menu ul {
+            display: block;
+        }
+
         .header__menu ul li a {
             font-size: 14px !important;
             padding: 10px 0 !important;
@@ -150,24 +154,21 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul class="mb-0">
-                                <li>
-                                    <a href="/">Home</a>
-                                </li>
                                 {% if request.user.is_authenticated %}
                                     <li>
-                                        <a href="/aluno/">Alunos</a>
+                                        <a href="{% url 'list_aluno' %}">Alunos</a>
                                     </li>
                                     <li>
-                                        <a href="/professor/">Professores</a>
+                                        <a href="{% url 'list_professor' %}">Professores</a>
                                     </li>
                                     <li>
-                                        <a href="/instrumento/">Instrumentos</a>
+                                        <a href="{% url 'list_instrumento' %}">Instrumentos</a>
                                     </li>
                                     <li>
-                                        <a href="/turma/">Turmas</a>
+                                        <a href="{% url 'list_turma' %}">Turmas</a>
                                     </li>
                                     <li>
-                                        <a href="/matricula/">Matrículas</a>
+                                        <a href="{% url 'list_matricula' %}">Matrículas</a>
                                     </li>
                                     <li class="logout-menu">
                                         <form action="{% url 'logout' %}" method="POST" style="display: inline; margin: 0;">
@@ -180,6 +181,18 @@
                                         </form>
                                     </li>
                                 {% else %}
+                                    <li>
+                                        <a href="{% url 'index' %}">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'about' %}">Sobre</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'videos' %}">Vídeos</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% if request.path == '/' %}#contato{% else %}{% url 'index' %}#contato{% endif %}">Contato</a>
+                                    </li>
                                     <li>
                                         <a href="{% url 'login' %}" class="login-menu-button">
                                             Entrar
@@ -228,28 +241,42 @@
                 </div>
                 <div class="neo-footer-links">
                     <h4>Navegação</h4>
-                    <a href="/aluno/">
-                        <i class="fa fa-graduation-cap"></i>
-                        Alunos
+                    <a href="{% url 'index' %}">
+                        <i class="fa fa-home"></i>
+                        Home
                     </a>
-                    <a href="/professor/">
-                        <i class="fa fa-user"></i>
-                        Professores
+                    <a href="{% url 'about' %}">
+                        <i class="fa fa-info-circle"></i>
+                        Sobre
                     </a>
-                    <a href="/matricula/">
-                        <i class="fa fa-id-card"></i>
-                        Matrículas
+                    <a href="{% url 'videos' %}">
+                        <i class="fa fa-play-circle"></i>
+                        Vídeos
                     </a>
-                    <a href="/turma/">
-                        <i class="fa fa-users"></i>
-                        Turmas
-                    </a>
-                    <a href="/instrumento/">
-                        <i class="fa fa-music"></i>
-                        Instrumentos
-                    </a>
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'list_aluno' %}">
+                            <i class="fa fa-graduation-cap"></i>
+                            Alunos
+                        </a>
+                        <a href="{% url 'list_professor' %}">
+                            <i class="fa fa-user"></i>
+                            Professores
+                        </a>
+                        <a href="{% url 'list_matricula' %}">
+                            <i class="fa fa-id-card"></i>
+                            Matrículas
+                        </a>
+                        <a href="{% url 'list_turma' %}">
+                            <i class="fa fa-users"></i>
+                            Turmas
+                        </a>
+                        <a href="{% url 'list_instrumento' %}">
+                            <i class="fa fa-music"></i>
+                            Instrumentos
+                        </a>
+                    {% endif %}
                 </div>
-                <div class="neo-footer-contact">
+                <div id="contato" class="neo-footer-contact">
                     <h4>Contato</h4>
                     <div class="contact-card">
                         <i class="fa fa-phone"></i>

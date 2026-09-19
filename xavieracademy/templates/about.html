@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="about-breadcrumb">
+    <div class="container">
+        <a href="{% url 'index' %}"><i class="fa fa-home"></i> Lar</a>
+        <span>|</span>
+        <strong>Sobre</strong>
+    </div>
+</div>
+
+<section class="about-intro">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="about-intro__image">
+                    <img src="{% static 'img/6.jpeg' %}" alt="Aluno tocando violão na Mavier Academy">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-intro__text">
+                    <div class="about-kicker">Mavier Academy</div>
+                    <h1>Sobre a escola</h1>
+                    <h2>Educação musical com propósito</h2>
+                    <p>Um espaço para aprender, praticar e desenvolver uma relação duradoura com a música.</p>
+                    <p>A Mavier Academy aproxima teoria e prática em uma experiência de aprendizado acolhedora, com acompanhamento para diferentes momentos da jornada musical.</p>
+                    <p>A proposta valoriza a disciplina, a criatividade e o prazer de tocar, sempre respeitando o ritmo e os objetivos de cada aluno.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-skills">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-lg-6">
+                <div class="about-skills__content">
+                    <div class="section-title">
+                        <h2>O que desenvolvemos</h2>
+                        <h1>Aprendizado</h1>
+                    </div>
+                    <p>As aulas e os conteúdos musicais são pensados para apoiar a construção de fundamentos, repertório e confiança.</p>
+                    <div class="about-skill">
+                        <div><span>Prática instrumental</span><strong>95%</strong></div>
+                        <div class="about-skill__bar"><span style="width: 95%;"></span></div>
+                    </div>
+                    <div class="about-skill">
+                        <div><span>Percepção musical</span><strong>85%</strong></div>
+                        <div class="about-skill__bar"><span style="width: 85%;"></span></div>
+                    </div>
+                    <div class="about-skill">
+                        <div><span>Expressão e repertório</span><strong>98%</strong></div>
+                        <div class="about-skill__bar"><span style="width: 98%;"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-skills__video set-bg" data-setbg="{% static 'img/5.png' %}">
+                    <a href="{% url 'videos' %}" class="about-play-btn" aria-label="Ver vídeos da Mavier Academy">
+                        <i class="fa fa-play"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-gallery">
+    <div class="container-fluid">
+        <div class="section-title center-title">
+            <h2>Vivências musicais</h2>
+            <h1>Música</h1>
+        </div>
+        <div class="about-gallery__grid">
+            <img src="{% static 'img/4.png' %}" alt="Guitarra em apresentação musical">
+            <img src="{% static 'img/7.png' %}" alt="Baterista em apresentação">
+            <img src="{% static 'img/8.png' %}" alt="Bateria eletrônica em estúdio">
+            <img src="{% static 'img/9.png' %}" alt="Palco e instrumentos musicais">
+            <img src="{% static 'img/5.png' %}" alt="Cantor em apresentação">
+            <img src="{% static 'img/6.jpeg' %}" alt="Aluno praticando violão">
+        </div>
+    </div>
+</section>
+{% endblock %}

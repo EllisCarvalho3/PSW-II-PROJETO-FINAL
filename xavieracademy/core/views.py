@@ -7,6 +7,14 @@ from .forms import *
 def index(request):
     return render(request, 'index.html')
 
+
+def about(request):
+    return render(request, 'about.html')
+
+
+def videos(request):
+    return render(request, 'videos.html')
+
 # esse crud é para aluno
 @login_required
 def list_aluno(request):

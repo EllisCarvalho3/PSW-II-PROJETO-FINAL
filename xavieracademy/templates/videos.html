@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="videos-breadcrumb">
+    <div class="container">
+        <a href="{% url 'index' %}"><i class="fa fa-home"></i> Lar</a>
+        <span>|</span>
+        <strong>Vídeos</strong>
+    </div>
+</div>
+
+<section class="videos-page">
+    <div class="container">
+        <div class="section-title center-title videos-page__title">
+            <h2>Conteúdos musicais</h2>
+            <h1>Vídeos e aulas</h1>
+        </div>
+
+        <article class="videos-feature" style="background-image: url('{% static 'img/2.jpeg' %}');">
+            <a href="https://youtube.com/playlist?list=PL9KWyFkQEFQoxouiueUi8QQm8qS8FvJcB&si=P-N0S9ST8LytsRG7" target="_blank" rel="noopener noreferrer" class="videos-feature__play" aria-label="Assistir ao módulo de violino">
+                <i class="fa fa-play"></i>
+            </a>
+            <div class="videos-feature__text">
+                <h3>Trilha de estudos: Violino Erudito</h3>
+                <ul>
+                    <li>Postura do arco</li>
+                    <li>Sonoridade</li>
+                    <li>Prática guiada</li>
+                </ul>
+            </div>
+        </article>
+
+        <div class="videos-grid">
+            <article class="videos-card">
+                <div class="videos-card__image" style="background-image: url('{% static 'img/4.png' %}');">
+                    <a href="https://youtube.com/playlist?list=PLb4uSJGRKwIA6cG_BLhzlQSHOQVtZacPu&si=4wopjRcLe6-7Cyfd" target="_blank" rel="noopener noreferrer" class="videos-card__play" aria-label="Assistir ao módulo de piano"><i class="fa fa-play"></i></a>
+                </div>
+                <h3>Módulo prático: Piano Clássico</h3>
+                <p>Leitura rítmica e independência das mãos</p>
+            </article>
+            <article class="videos-card">
+                <div class="videos-card__image" style="background-image: url('{% static 'img/7.png' %}');">
+                    <a href="https://youtu.be/U8h0XCPkEnE?si=DMjUq6n9W596icCi" target="_blank" rel="noopener noreferrer" class="videos-card__play" aria-label="Assistir ao módulo de violão"><i class="fa fa-play"></i></a>
+                </div>
+                <h3>Módulo prático: Violão Acústico</h3>
+                <p>Acordes fundamentais e dedilhados básicos</p>
+            </article>
+            <article class="videos-card">
+                <div class="videos-card__image" style="background-image: url('{% static 'img/8.png' %}');">
+                    <a href="https://youtube.com/playlist?list=PL9KWyFkQEFQoxouiueUi8QQm8qS8FvJcB&si=P-N0S9ST8LytsRG7" target="_blank" rel="noopener noreferrer" class="videos-card__play" aria-label="Assistir à prática instrumental"><i class="fa fa-play"></i></a>
+                </div>
+                <h3>Prática instrumental</h3>
+                <p>Rotina, técnica e evolução musical</p>
+            </article>
+        </div>
+    </div>
+</section>
+{% endblock %}
