@@ -15,10 +15,10 @@ Sistema web de gestão acadêmica para uma escola de música, desenvolvido como 
 
 # Interface inicial
 
-A imagem abaixo apresenta uma das seções da tela inicial do sistema **Mavier Academy**, desenvolvida a partir da adaptação do template DJoz. Novas funcionalidades e telas serão adicionadas conforme o desenvolvimento do projeto.
+A imagem abaixo apresenta a seção "sobre" do sistema **Mavier Academy**, desenvolvida a partir da adaptação do template DJoz. 
 
 <p align="center">
-    <img src="imagens/demonstracao_sistema.png" alt="Tela inicial do sistema" width="900">
+    <img src="imagens/demonstracao_sistema.jpg" alt="Tela inicial do sistema" width="900">
 </p>
 
 ---
@@ -27,7 +27,7 @@ A imagem abaixo apresenta uma das seções da tela inicial do sistema **Mavier A
 
 O **Mavier Academy** é uma aplicação web desenvolvida para simular o gerenciamento de uma escola de música, permitindo o cadastro e gerenciamento de alunos, professores, instrumentos, turmas e matrículas.
 
-O projeto foi desenvolvido seguindo os requisitos da disciplina de **Programção de Sistemas para Web II**, contemplando modelagem orientada a objetos, banco de dados relacional, autenticação de usuários e interface responsiva.
+O projeto foi desenvolvido seguindo os requisitos da disciplina de **Programação de Sistemas para Web II**, contemplando modelagem orientada a objetos, banco de dados relacional, autenticação de usuários e interface responsiva.
 
 ---
 
