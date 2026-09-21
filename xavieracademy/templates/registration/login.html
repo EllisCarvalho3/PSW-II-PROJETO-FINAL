@@ -288,8 +288,8 @@
                 </div>
                 
                 <div class="secondary-actions">
-                    <a="button" class="button2" onclick="alert('Inscrições institucionais suspensas via web. Procure a secretaria.')">Sign Up</a=>
-                    <button type="button" class="button3" onclick="alert('Entre em contato com o suporte de TI para redefinir suas credenciais.')">Esqueceu a senha?</button>
+                    <a href="#" class="button2" onclick="alert('Inscrições institucionais suspensas via web. Procure a secretaria.'); return false;">Sign Up</a>
+                    <a href="{% url 'password_reset' %}" class="button3">Esqueceu a senha?</a>
                 </div>
             </form>
 
