@@ -17,6 +17,7 @@ def videos(request):
     return render(request, 'videos.html')
 
 
+@login_required
 def cadastro(request):
     if request.method == 'POST':
         form = CadastroForm(request.POST)
