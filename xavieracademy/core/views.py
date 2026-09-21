@@ -32,7 +32,7 @@ def cadastro(request):
 @login_required
 def list_aluno(request):
     alunos = Aluno.objects.all()
-    return render(request, 'aluno/list.html', {'alunos': alunos})
+    return render(request, 'aluno/list.html', {'alunos': als})
 
 
 @login_required
