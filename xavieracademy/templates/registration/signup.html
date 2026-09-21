@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Mavier Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+</head>
+<body class="auth-page">
+    <main class="auth-card">
+        <div class="auth-card__inner">
+            <header class="auth-brand">
+                <i class="fa fa-user-plus"></i>
+                <h1>Mavier <span>Academy</span></h1>
+                <p>Crie seu acesso ao sistema</p>
+            </header>
+
+            <form method="post" class="auth-form">
+                {% csrf_token %}
+                {% if form.non_field_errors %}<div class="auth-error">{{ form.non_field_errors }}</div>{% endif %}
+
+                {% for field in form %}
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.help_text %}<small class="auth-help">{{ field.help_text }}</small>{% endif %}
+                    {% if field.errors %}<div class="auth-error">{{ field.errors }}</div>{% endif %}
+                {% endfor %}
+
+                <button type="submit" class="auth-button">Criar cadastro</button>
+            </form>
+            <a class="auth-link" href="{% url 'login' %}">Já tenho uma conta</a>
+        </div>
+    </main>
+</body>
+</html>

@@ -10,6 +10,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),
     path('videos/', views.videos, name='videos'),
+    path('accounts/cadastro/', views.cadastro, name='cadastro'),
 
     path('aluno/', views.list_aluno, name='list_aluno'),
     path('aluno/criar/', views.create_aluno, name='create_aluno'),
