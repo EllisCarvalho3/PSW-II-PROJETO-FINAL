@@ -1,5 +1,4 @@
 from functools import wraps
-
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import redirect_to_login 
