@@ -268,6 +268,12 @@
                     <p><i class="bi bi-exclamation-circle-fill"></i> Usuário ou senha incorretos.</p>
                 </div>
                 {% endif %}
+
+                {% if authorization_error %}
+                <div class="error-box">
+                    <p><i class="bi bi-shield-lock-fill"></i> Seu usuário não tem autorização para entrar no sistema.</p>
+                </div>
+                {% endif %}
                 
                 <div class="field">
                     <svg viewBox="0 0 16 16" class="input-icon">

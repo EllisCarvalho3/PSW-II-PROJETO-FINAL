@@ -154,7 +154,7 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul class="mb-0">
-                                {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
                                     <li>
                                         <a href="{% url 'list_aluno' %}">Alunos</a>
                                     </li>
@@ -253,7 +253,7 @@
                         <i class="fa fa-play-circle"></i>
                         Vídeos
                     </a>
-                    {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
                         <a href="{% url 'list_aluno' %}">
                             <i class="fa fa-graduation-cap"></i>
                             Alunos
