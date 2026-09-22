@@ -12,14 +12,10 @@
                     <span>Mavier Academy</span> 
                     <h1>Transformando alunos em músicos</h1>
                     <p>Sistema corporativo completo para gerenciamento de matrículas, turmas e controle de instrumentos musicais.</p>
-                    {% if request.user.is_superuser %}
+                    <div class="public-hero-actions">
                         <a href="{% url 'create_aluno' %}" class="primary-btn">Cadastrar novo aluno</a>
-                    {% else %}
-                        <div class="public-hero-actions">
-                            <a href="{% url 'about' %}" class="primary-btn">Conheça a escola</a>
-                            <a href="{% url 'videos' %}" class="primary-btn border-btn">Ver vídeos</a>
-                        </div>
-                    {% endif %}
+                        <a href="{% url 'videos' %}" class="primary-btn border-btn">Ver vídeos</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,7 +24,6 @@
         <a href="#services-section"><i class="fa fa-angle-double-down"></i></a>
     </div>
 </section>
-{% if request.user.is_superuser %}
 <section id="services-section" class="services">
     <div class="container-fluid">
         <div class="row">
@@ -83,7 +78,6 @@
         </div>
     </div>
 </section>
-{% endif %}
 <section class="track spad">
     <div class="container">
         <div class="row">
@@ -94,11 +88,7 @@
                 </div>
             </div>
             <div class="col-lg-5 text-right">
-    {% if request.user.is_superuser %}
-        <a href="{% url 'list_turma' %}" class="primary-btn border-btn" style="color: #ffffff !important;">Visualizar turmas</a>
-    {% else %}
-        <a href="{% url 'videos' %}" class="primary-btn border-btn" style="color: #ffffff !important;">Explorar vídeos</a>
-    {% endif %}
+                <a href="{% url 'list_turma' %}" class="primary-btn border-btn" style="color: #ffffff !important;">Visualizar turmas</a>
 </div>
             
         </div>

@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso não autorizado | Mavier Academy</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+</head>
+<body class="auth-page">
+    <main class="auth-card">
+        <div class="auth-card__inner">
+            <header class="auth-brand">
+                <h1>Acesso não autorizado</h1>
+                <p>Seu usuário não tem permissão para acessar esta área.</p>
+            </header>
+            <a class="auth-link" href="{% url 'index' %}">Voltar para a página inicial</a>
+        </div>
+    </main>
+</body>
+</html>

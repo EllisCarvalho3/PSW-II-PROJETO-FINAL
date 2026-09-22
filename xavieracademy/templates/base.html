@@ -253,7 +253,6 @@
                         <i class="fa fa-play-circle"></i>
                         Vídeos
                     </a>
-                    {% if request.user.is_superuser %}
                         <a href="{% url 'list_aluno' %}">
                             <i class="fa fa-graduation-cap"></i>
                             Alunos
@@ -274,7 +273,6 @@
                             <i class="fa fa-music"></i>
                             Instrumentos
                         </a>
-                    {% endif %}
                 </div>
                 <div id="contato" class="neo-footer-contact">
                     <h4>Contato</h4>

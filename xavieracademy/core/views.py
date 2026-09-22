@@ -1,23 +1,11 @@
-from functools import wraps
-from django.contrib.auth import login, logout
+from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.views import redirect_to_login 
 from django.shortcuts import render, redirect
 from .forms import CadastroForm
 from .models import *
 from .forms import *
 
-
-def admin_required(view_func):
-    @wraps(view_func)
-    def wrapped_view(request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return redirect_to_login(request.get_full_path(), '/accounts/login/')
-        if not request.user.is_superuser:
-            return render(request, 'registration/unauthorized.html', status=403)
-        return view_func(request, *args, **kwargs)
-
-    return wrapped_view
 
 
 # Create your views here.
@@ -50,28 +38,24 @@ def login_view(request):
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
-            if not user.is_superuser:
-                logout(request)
-                return render(request, 'registration/login.html', {
-                    'form': form,
-                    'authorization_error': True,
-                })
-
             login(request, user)
-            return redirect(request.POST.get('next') or 'index')
+            return redirect('index')
     else:
         form = AuthenticationForm(request)
 
     return render(request, 'registration/login.html', {'form': form})
 
+
+
 # esse crud é para aluno
-@admin_required
+
 def list_aluno(request):
     alunos = Aluno.objects.all()
     return render(request, 'aluno/list.html', {'alunos': alunos})
 
 
-@admin_required
+@login_required
+@permission_required('core.add_aluno', raise_exception=True)
 def create_aluno(request):
     if request.method == 'POST':
         form = AlunoForm(request.POST)
@@ -85,7 +69,8 @@ def create_aluno(request):
     return render(request, 'form.html', {'form': form})
 
 
-@admin_required
+@login_required
+@permission_required('core.change_aluno', raise_exception=True)
 def update_aluno(request, id):
     aluno = Aluno.objects.get(id=id)
 
@@ -101,14 +86,15 @@ def update_aluno(request, id):
     return render(request, 'form.html', {'form': form})
 
 
-@admin_required
+
 def detail_aluno(request, id):
     aluno = Aluno.objects.get(id=id)
 
     return render(request, 'aluno/detail.html', {'aluno': aluno})
 
 
-@admin_required
+@login_required
+@permission_required('core.delete_aluno', raise_exception=True)
 def delete_aluno(request, id):
     aluno = Aluno.objects.get(id=id)
 
@@ -123,12 +109,13 @@ def delete_aluno(request, id):
 
 
 # esse crud é para instrumento
-@admin_required
+
 def list_instrumento(request):
     instrumentos = Instrumento.objects.all()
     return render(request, 'instrumento/list.html', {'instrumentos': instrumentos})
 
-@admin_required
+@login_required
+@permission_required('core.add_instrumento', raise_exception=True)
 def create_instrumento(request):
     if request.method == 'POST':
         form = InstrumentoForm(request.POST)
@@ -142,7 +129,8 @@ def create_instrumento(request):
 
     return render(request, 'form.html', {'form': form})
 
-@admin_required
+@login_required
+@permission_required('core.change_instrumento', raise_exception=True)
 def update_instrumento(request, id):
     instrumento = Instrumento.objects.get(id=id)
 
@@ -159,12 +147,12 @@ def update_instrumento(request, id):
     return render(request, 'form.html', {'form': form})
 
 
-@admin_required
 def detail_instrumento(request, id):
     instrumento = Instrumento.objects.get(id=id)
     return render(request, 'instrumento/detail.html', {'instrumento': instrumento})
 
-@admin_required
+@login_required
+@permission_required('core.delete_instrumento', raise_exception=True)
 def delete_instrumento(request, id):
     instrumento = Instrumento.objects.get(id=id)
     instrumento.delete()
@@ -176,12 +164,13 @@ def delete_instrumento(request, id):
 
 
 # esse crud é para matricula
-@admin_required
+
 def list_matricula(request):
     matriculas = Matricula.objects.all()
     return render(request, 'matricula/list.html', {'matriculas': matriculas})
 
-@admin_required
+@login_required
+@permission_required('core.add_matricula', raise_exception=True)
 def create_matricula(request):
     if request.method == 'POST':
         form = MatriculaForm(request.POST)
@@ -195,7 +184,8 @@ def create_matricula(request):
 
     return render(request, 'form.html', {'form': form})
 
-@admin_required
+@login_required
+@permission_required('core.change_matricula', raise_exception=True)
 def update_matricula(request, id):
     matricula = Matricula.objects.get(id=id)
 
@@ -212,12 +202,12 @@ def update_matricula(request, id):
     return render(request, 'form.html', {'form': form})
 
 
-@admin_required
 def detail_matricula(request, id):
     matricula = Matricula.objects.get(id=id)
     return render(request, 'matricula/detail.html', {'matricula': matricula})
 
-@admin_required
+@login_required
+@permission_required('core.delete_matricula', raise_exception=True)
 def delete_matricula(request, id):
     matricula = Matricula.objects.get(id=id)
     matricula.delete()
@@ -229,7 +219,7 @@ def delete_matricula(request, id):
 
 
 # esse crud é para professor
-@admin_required
+
 def list_professor(request):
     professores = Professor.objects.all()
 
@@ -238,7 +228,8 @@ def list_professor(request):
     })
 
 
-@admin_required
+@login_required
+@permission_required('core.add_professor', raise_exception=True)
 def create_professor(request):
     if request.method == 'POST':
         form = ProfessorForm(request.POST)
@@ -252,7 +243,8 @@ def create_professor(request):
     return render(request, 'form.html', {'form': form})
 
 
-@admin_required
+@login_required
+@permission_required('core.change_professor', raise_exception=True)
 def update_professor(request, id):
     professor = Professor.objects.get(id=id)
 
@@ -268,7 +260,6 @@ def update_professor(request, id):
     return render(request, 'form.html', {'form': form})
 
 
-@admin_required
 def detail_professor(request, id):
     professor = Professor.objects.get(id=id)
 
@@ -277,7 +268,8 @@ def detail_professor(request, id):
     })
 
 
-@admin_required
+@login_required
+@permission_required('core.delete_professor', raise_exception=True)
 def delete_professor(request, id):
     professor = Professor.objects.get(id=id)
 
@@ -292,12 +284,13 @@ def delete_professor(request, id):
 
 
 # esse crud é para turma
-@admin_required
+
 def list_turma(request):
     turmas = Turma.objects.all()
     return render(request, 'turma/list.html', {'turmas': turmas})
 
-@admin_required
+@login_required
+@permission_required('core.add_turma', raise_exception=True)
 def create_turma(request):
     if request.method == 'POST':
         form = TurmaForm(request.POST)
@@ -311,7 +304,8 @@ def create_turma(request):
 
     return render(request, 'form.html', {'form': form})
 
-@admin_required
+@login_required
+@permission_required('core.change_turma', raise_exception=True)
 def update_turma(request, id):
     turma = Turma.objects.get(id=id)
 
@@ -328,12 +322,12 @@ def update_turma(request, id):
     return render(request, 'form.html', {'form': form})
 
 
-@admin_required
 def detail_turma(request, id):
     turma = Turma.objects.get(id=id)
     return render(request, 'turma/detail.html', {'turma': turma})
 
-@admin_required
+@login_required
+@permission_required('core.delete_turma', raise_exception=True)
 def delete_turma(request, id):
     turma = Turma.objects.get(id=id)
     turma.delete()
